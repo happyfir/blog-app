@@ -14,8 +14,18 @@ export function getArticles(query, page) {
       month: query.month,
       tagId: query.tagId,
       categoryId: query.categoryId,
-      authorId: query.authorId
+      authorId: query.authorId,
+      condition: query.condition
     }
+  })
+}
+
+
+export function searchArticle(search) {
+  return request({
+    url: '/articles/search',
+    method: 'post',
+    data: search
   })
 }
 
@@ -61,14 +71,6 @@ export function publishArticle(article,token) {
     url: '/articles/publish',
     method: 'post',
     data: article
-  })
-}
-
-export function searchArticle(search) {
-  return request({
-    url: '/articles/search',
-    method: 'post',
-    data: search
   })
 }
 

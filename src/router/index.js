@@ -65,6 +65,14 @@ const router = new VueRouter({
         {
           path: '/myArticles',
           component: r => require.ensure([], () => r(require('@/views/common/MyArticles')), 'myArticles')
+        },
+        {
+          path: '/search',
+          component: r => require.ensure([], () => r(require('@/views/common/SearchArticles')), 'searchArticles')
+        },
+        {
+          path: '/empty',
+          component: r => require.ensure([], () => r(require('@/views/blog/Empty')), 'empty')
         }
       ]
     },

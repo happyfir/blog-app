@@ -11,6 +11,7 @@ export default new Vuex.Store({
     account: '',
     name: '',
     avatar: '',
+    query: '',
     token: getToken(),
   },
   mutations: {

@@ -54,6 +54,7 @@
     },
     data() {
       return {
+        condition: this.$store.state.query,
         loading: false,
         noData: false,
         innerPage: {
