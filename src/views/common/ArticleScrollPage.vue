@@ -1,5 +1,6 @@
 <template>
   <scroll-page :loading="loading" :offset="offset" :no-data="noData" v-on:load="load">
+    <h1 v-if="result" style="align: center">没有找到相关文章</h1>
     <article-item v-for="a in articles" :key="a.id" v-bind="a"></article-item>
   </scroll-page>
 </template>
@@ -54,6 +55,7 @@
     },
     data() {
       return {
+        result : false,
         condition: this.$store.state.query,
         loading: false,
         noData: false,
@@ -81,9 +83,11 @@
 
           let newArticles = data.data
           if (newArticles && newArticles.length > 0) {
+            that.result = false;
             that.innerPage.pageNumber += 1
             that.articles = that.articles.concat(newArticles)
           } else {
+            that.result = true
             that.noData = true
           }
 
